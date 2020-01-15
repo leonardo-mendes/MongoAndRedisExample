@@ -1,0 +1,21 @@
+version: '3'
+services:
+
+  mongodb:
+    image: 'bitnami/mongodb:latest'
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGODB_USERNAME=mongoadmin
+      - MONGODB_PASSWORD=secret
+      - MONGODB_DATABASE=eventconfig
+    restart: always
+
+  redis-server:
+    image: redis
+    container_name: "redis-server"
+    expose:
+      - "6379"
+    ports:
+      - "6379:6379"
+    restart: always
